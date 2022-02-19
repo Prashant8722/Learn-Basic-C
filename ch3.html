@@ -1,0 +1,469 @@
+<HTML>
+<HEAD>
+<TITLE>Chapter 3 -- Expressions</TITLE>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#CE2910">
+<H1><FONT SIZE=6 COLOR=#FF0000>Chapter&nbsp;3</FONT></H1>
+<H1><FONT SIZE=6 COLOR=#FF0000>Expressions</FONT></H1>
+<P>
+
+<CENTER><B><FONT SIZE=5><A NAME="CONTENTS">CONTENTS</A></FONT></B></CENTER>
+<UL>
+<LI><A HREF="ch3.html#Introduction">
+Introduction</A>
+
+<LI><A HREF="ch3.html#Arithmetic Operators ">
+Arithmetic Operators </A>
+
+<LI><A HREF="ch3.html#Assignment Operators">
+Assignment Operators</A>
+
+<LI><A HREF="ch3.html#Logical Operators">
+Logical Operators </A>
+
+<LI><A HREF="ch3.html#Increment and Decrement Operators ">
+Increment and Decrement Operators</A>
+
+<LI><A HREF="ch3.html#Relational Operators">
+Relational Operators</A>
+
+<LI><A HREF="ch3.html#Bitwise operators">
+Bitwise Operators</A>
+
+<LI><A HREF="ch3.html#Type Casting">
+Type Casting</A>
+
+<LI><A HREF="ch3.html#Statements in C">
+Statements in C</A>
+
+<LI><A HREF="ch3.html#A Special Operator: AddressOf (&)">
+A Special Operator: AddressOf (&)</A>
+
+<LI><A HREF="ch3.html#Chapter 3 Quiz">
+Chapter 3 Quiz</A>
+</UL>
+
+<H2><A NAME="Introduction"><FONT SIZE=5 COLOR=#FF0000>
+Introduction</FONT></A></H2>
+<UL type='disc'>
+<li>Variables and constants linked with operators</li>
+	<ol>
+		<li>Arithmetic expressions</li>
+			<ul><li>Uses arithmetic operators</li>
+			<li>Can evaluate to any value</li></ul>
+		<li>Logical expressions</li>
+			<ul><li>Uses relational and logical operators</li>
+				<li>Evaluates to 1 or 0 (true or false) only</li></ul>
+		<li>Assignment expression</li>
+			<ul><li>Uses assignment operators</li>
+			<li>Evaluates to value depending on assignment</li></ul>
+	</ol>
+</UL>
+
+<H2><A NAME="Arithmatic Operators"><FONT SIZE=5 COLOR=#FF0000>
+Arithmatic Operators</FONT></A></H2>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+#t01,#t02,#t03,#t04,#t05,#t06,#t07 {
+  width: 100%;    
+  background-color: #f1f1c1;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+<table id="#t01"width=40%>
+<caption><strong>Binary Operator</strong></caption>
+ <tr>
+    <th >Operator Name</th>
+    <th >Operator Symbol</th>
+    <th >Expression</th>
+  </tr>
+<tr><td >Addition:</td> <td >+</td> <td >2*3+5-10/3</td></tr>
+<tr><td >Subtraction:</td> <td >-</td> <td >-1+3*25/5-7</td></tr>
+<tr><td >Division:</td> <td >/</td> <td >distance/time</td></tr>
+<tr><td >Multiplication:</td> <td >*</td> <td >3.14*radius*radius</td></tr>
+<tr><td >Modulus:</td> <td >%</td> <td >37%10</td></tr>
+</table>
+
+ <table id="#t02" width=40%>
+<caption><b>Unary operators</b></caption>
+ <tr>
+    <th >Operator Name</th>
+    <th >Operator Symbol</th>
+    <th >Expression</th>
+  </tr>
+<tr>
+	<td >Plus:</td> <td>+</td><td >a++</td>
+</tr>
+<tr>
+	<td >Minus:</td> <td>-</td><td >--a</td>
+</tr>
+</table>
+
+<section>
+<h4>Example</h4>
+<p>Suppose x and y are two <b>integer variables</b>,whose values are 16 and 5 respectively</p>
+<table id ="#t03" width="40%" >
+<tr>
+    <td>x+y</td>
+    <td >21</td>
+</tr>
+<tr>
+	<td>x-y</td>
+    <td>11</td>
+</tr>
+<tr>
+	<td >x*y</td> 
+	<td>80</td>
+</tr>
+<tr>
+	<td>x/y</td>
+	<td >3</td>
+</tr>
+<tr>
+	<td >x%y</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td >++x</td>
+	<td >17</td>
+</tr>
+<tr>
+	<td >y--</td>
+	<td >5</td>
+</tr>
+</table>
+
+<p>All operators except % can be used with operands of all of the data types int, float,
+double, char (yes! char also! We will see what it means later)</p>
+<p>% can be used only with integer operands</p>
+<p>If all operands of an operator are integer<b>(int variables or integer constants)</b>,thevalue is always integer</p>
+<pre><b>Example:</b>9/5 will be 1, not 1.8
+int a=9, b=5;
+printf("%d", a/b);
+will print 1 and not 1.8
+</pre>
+<P style="font-size:20px;">If at least one operand is real, the value is real<br>
+<strong>Caution:</strong>Since floating-point values are rounded total number of significant digits permissible,the final
+value is an approximation of the final result<br>
+<b>Example:</b>1/ 3.0 * 3.0 may have the value 0.99999 and not 1.0</p>
+</section>
+
+<H2><A NAME="Assignment Operators"><FONT SIZE=5 COLOR=#FF0000>
+Assignment Operators</FONT></A></H2>
+<ul>
+<li>Uses the assignment operator (=)</li>
+<li>General syntax:</li>
+		variable_name = expression
+<li>Left of = is called <span style="color:#0000ff;">l-value</span>,must be a modifiable variable</li>
+<li>Right of = is called <span style="color:#ff6347;">r-value </span>,can be any expression</li>
+<li><b>Examples:</b></li>
+		<p>velocity = 20<br>
+		b = 15; temp = 12.5<br>
+		A = A + 10<br>
+		v = u + f * t<br>
+		s = u * t + 0.5 * f * t * t</p>
+
+<li>An assignment expression evaluates to a value same as any other expression</li>
+<li>Value of an assignment expression is the value assigned to the l-value</li>
+<li><b>Example:</b> value of</li>
+		<p >a = 3 is 3<br>
+		b = 2*4 -6 is 2<br>
+		n = 2*u + 3*v - w is whatever the arithmetic expression 2*u + 3*v - w 
+		evaluates to given the current values stored in variables u, v, w</p>
+<li>Several variables can be assigned the same value using multiple assignment operators</li>
+		<p>a = b = c = 5;<br>
+		flag1 = flag2 = 'y';</br>
+		speed = flow = 0.0;</p>
+<li>Easy to understand if you remember that</li>
+	<ul type="disc">
+		<li>the assignment expression has a value</li>
+		<li>Multiple assignment operators are right-to-left associative </li>
+	</ul>
+</ul>
+<h3 style="color:blue;">More Assignment Operators</h3>
+<ul>
+<li>+=, -=, *=, /=, %=</li>
+<li>Operators for special type of assignments</li>
+<li> a += b is the same as a = a + b</li>
+<li> Same for -=, *=, /=, and %=</li>
+<li> Exact same rules apply for multiple assignment operators</li>
+</ul>
+
+<H2><A NAME="Logical Operators"><FONT SIZE=5 COLOR=#FF0000>
+Logical Operators</FONT></A></H2>
+<table id="#t04"width=50%>
+<caption><strong>Operation</strong></caption>
+ <tr>
+    <th >a</th>
+    <th >b</th>
+    <th >a&&b</th>
+    <th >a||b</th>
+  </tr>
+<tr><td >0</td> <td >0</td> <td >0</td><td >non-0</td></tr>
+<tr><td >0</td> <td >non-0</td> <td >0</td><td >non-0</td></tr>
+<tr><td >non-0</td> <td >0</td> <td >0</td><td >non-0</td></tr>
+<tr><td >non-0</td><td >non-0</td><td >non-0</td><td>non-0</td></tr>
+</table>
+
+<h3 style="color:blue;">Logical Expressions</h3>
+<p style="font-size:20px;">((count <= 100) || (count >= 200))<br>
+((math+phys+chem)/3 >= 60)<br>
+((sex == 'M') && (age >= 21))<br>
+((marks >== 80) && (marks < 90))<br>
+((balance > 5000) | | (no_of_trans > 25))<br>
+(!(grade == 'A'))
+</p>
+<h3 style="color:SlateBlue;">Unary negation operator (!)</h3>
+<ul>
+<li>Single operand</li>
+	<ol>
+		<li>Value is 0 if operand is non-zero</li>
+		<li>Value is 1 if operand is 0</li>
+	</ol>
+</ul>
+
+<h3 style="color:DodgerBlue;">Example</li></h3>
+<ul>
+	<li>(4 > 3) && (100 != 200)</li>
+		<ol type="I"><li>4 > 3 is true, so value 1</li>
+					<li>100 != 200 is true so value 1</li>
+					<li>Both operands 1 for &&, so final value 1</li></ol>
+	<li> (!10) && (10 + 20 != 200)</li>
+		<ol type="I"><li>10 is non-0, so value !10 is 0</li>
+					<li>10 + 20 != 200 is true so value 1</li>
+					<li>Both operands NOT 1 for &&, so final value 0</li></ol>
+	<li>(!10) || (10 + 20 != 200)</li>
+			<p>Same as above, but at least one value non-0, so final value 1 </p>
+</ul>
+<H2><A NAME="Increment and Decrement Operators"><FONT SIZE=5 COLOR=#FF0000>
+Increment and Decrement Operators</FONT></A></H2>
+<ul type="square">
+<li>Both of these are unary operators; they operate on a single operand</li>
+<li>The increment operator causes its operand to be increased by 1</li>
+	<dt>Example: a++, ++count</dt>
+<li>The decrement operator causes its operand to be decreased by 1.</li>
+	<dt>Example: i--, --distance</dt>
+</ul>
+<p></p>
+<h4 style="color:MediumSeaGreen;">Pre-increment v/s post-increment</h4>
+<ul>
+<li>Operator written before the operand (++i, --i)</li>
+	<ul>
+		<li>Called pre-increment operator (also sometimes called prefix ++ and prefix --)</li>
+		<li>Operand will be altered in value before it is utilized in the program </li>
+	</ul>
+<li>Operator written after the operand (i++, i--)</li>
+	<ul>
+		<li>Called post-increment operator (also sometimes called postfix ++ and postfix --)</li>
+		<li>operand will be altered in value after it is utilized in the program</li>
+	</ul>
+</ul>
+
+<H2><A NAME="Relational Operators"><FONT SIZE=5 COLOR=#FF0000>
+Relational Operators </FONT></A></H2>
+<ul type="square">
+<li>Uses relational and logical operators in addition</li>
+<li>Informally, specifies a condition which can be true or false</li>
+<li>Evaluates to value 0 or 1</li>
+	<ol>
+	<li>0 implies the condition is false</li>
+	<li>1 implies the condition is true</li>
+	</ol>
+</ul>
+<h3 style="color:Blue;">Relational Operators Symbol & Name</h3>
+<p>Used to compare two quantities.</p>
+<table id="#t06" width=50%>
+<TH>Symbol</TH><TH>Name</TH>
+<TR>
+	<TD> < </TD><TD>is less than</TD>
+</TR>
+<TR>
+	<TD> > </TD><TD>is greater than</TD>
+</TR>
+<TR>
+	<TD><=</TD><TD>is less than or equal to</TD>
+</TR>
+<TR>
+	<TD>>=</TD><TD>is greater than or equal to</TD>
+</TR>
+<TR>
+	<TD>==</TD><TD>is equal to</TD>
+</TR>
+<TR>
+	<TD>!=</TD><TD>is not equal to </TD>
+</TR>
+</table>	
+	
+<p style="color:blue; font-size:20px;">Examples:<br></p>
+<p>10 > 20 is false, so value is 0<br>
+25 < 35.5 is true, so value is 1<br>
+12 > (7 + 5) is false, so value is 0<br>
+32 != 21 is true, so value is 1<br>
+<p>When arithmetic expressions are used on either side of a relational operator, the arithmetic
+expressions will be evaluated first and then the results compared
+a + b > c - d is the same as (a+b) > (c+d).</p>
+
+<H2><A NAME="Bitwise Operators"><FONT SIZE=5 COLOR=#FF0000>
+Bitwise Operators</FONT></A></H2>
+<p><b>Note:</b>For calculating two operand with Bitwise operator convert number firstly into binaray number afterthat apply operation on every single bits according to below mention table.</p>   
+<TABLE id="#t07" width="100%">
+<TH >Operand-1</TH><TH>Operand-2</TH><TH> Operand-1 &(Bitwise AND) Operand-2 </TH><TH>Operand-1 |(Bitwise OR) Operand-2 </TH><TH>operand-1 ^(Bitwise XOR) operand-2</TH>
+<TR VALIGN=TOP><TD><CENTER><B>0</B></CENTER></TD><TD><b>0</b></TD><TD> 0 </TD><TD>0</TD><TD>0</TD></TR>
+<TR VALIGN=TOP><TD><CENTER><B>0</B></CENTER></TD><TD><B>1</B></TD><TD> 0 </B></TD><TD>1</B><TD>1</TD></TD></TR>
+<TR VALIGN=TOP><TD><CENTER><B>1</B></CENTER></TD><TD><B>0</B></TD><TD> 0 </B></TD><TD>1</B><TD>1</TD></TD></TR>
+<TR VALIGN=TOP><TD><CENTER><B>1</B></CENTER></TD><TD><B>1</B></TD><TD> 1 </B></TD><TD>1</B><TD>0</TD></TD></TR>
+</TABLE>
+
+<H2><A NAME="Type Casting"><FONT SIZE=5 COLOR=#FF0000>
+Type Casting</FONT></A></H2>
+<PRE>
+<B>Illustration 3.1</B>
+#include&#60stdio.h &#62
+int main() {
+int a = 25, b = 10;
+float result;
+result = a/b;
+printf("The result is %f\n", result);
+return 0;
+}
+</PRE>
+
+<TABLE  BORDER=1 WIDTH=50%>
+<TR VALIGN=TOP><TD><B>OUTPUT:</B></TD></TR>
+<TR VALIGN=TOP><TD>
+<BLOCKQUOTE>
+The result is 2.000000
+</BLOCKQUOTE>
+</TD></TR>
+</TABLE>
+
+<ul type="disc">
+<li>Convert a variable from one data type to another data type</li>
+<li>Cast operator: <strong>(type_name) </strong>expression</li>
+<li><h3>Implicit casting</h3></li>
+<ul type="circle">
+	<li>Compiler can implicitly cast the values in an expression based on the declared variable type
+	<li>Implicit casting sequence priority:<b>int -> long -> float -> double</b></li>
+	<li>The implicit type for (a*b) is <em>float</em> for below example
+		<ul>int a = 10;<br>float b = 2.0;</ul>
+</ul>
+
+<li><b>Rule:</b> The final type of an expression is the highest priority type among all the variable types in the expression</li>
+</ul>
+<pre>
+<B>Illustration 3.2</B>
+#include&#60stdio.h &#62
+int main() {
+int a = 55, b = 10;
+float result;
+result = <strong>(float)</strong> a/b;
+printf("The result is %f\n", result);
+return 0;
+}
+</pre>
+<TABLE BORDERCOLOR=#00ff00 BORDER=1 WIDTH=50%>
+<TR VALIGN=TOP><TD><B>OUTPUT:</B></TD></TR>
+<TR VALIGN=TOP><TD>
+<BLOCKQUOTE>
+The result is 5.500000<br>
+</BLOCKQUOTE>
+</TD></TR>
+</TABLE>
+
+<pre>
+<b>Illustration 3.3</b>
+#include&#60stdio.h&#62
+int main() {
+int a = 25;
+float b = 10.0;
+float result;
+result = a/b;
+printf("The result is %f\n", result);
+return 0;
+}
+</pre>
+
+<TABLE id="#t05" WIDTH=50%>
+<th>Output:<br>The result is 2.500000</th>
+</TABLE>
+
+<H2><A NAME="Statements in C"><FONT SIZE=5 COLOR=#FF0000>
+Statements in C</FONT></A></H2>
+<h3>Parts of C program that tell the computer what to do</h3>
+<ul type="square">
+	<li>Different types</li>
+		<ul>Declaration statements</ul>
+	<li>Declares variables etc.</li>
+		<ul>Assignment statement</ul>
+	<li>Assignment expression, followed by a</li>
+		<ul>Control statements</ul>
+	<li>For branching and looping, like if-else, for, while, do-while(to be seen later)</li>
+		<ul>Input/Output</ul>
+	<li>Read/print,like printf/scanf</li>
+</ul>
+<center><img src="Figure3.0.jpg"></center>
+
+<H2><A NAME="A Special Operator: AddressOf (&)"><FONT SIZE=5 COLOR=#FF0000>
+A Special Operator: AddressOf (&)</FONT></A></H2>
+<ul type="circle">
+	<li>Remember that each variable is stored at a location with an unique address
+	
+	<li>Putting & before a variable name gives the address of the variable (where it is stored, not the value)</li>
+	
+	<li>It Can be put before any variable(with no blank in between)</li>
+</ul>
+<pre>
+int a =10;
+printf("Value of a is %d, and address of a is %d\n", a, <b>&a</b>);
+</pre>
+<h2 style="color:Tomato; Text-align:center;">Expression Evalation Order of Operator & Associativity Table</h2>  
+<center><img src="Figure3.1.png"></center>
+
+<H2><A NAME="Chapter 3 Quiz"><FONT SIZE=5 COLOR=#FF0000>
+Chapter 3 Quiz</FONT></A></H2>
+
+<CENTER><P>
+<A HREF="#CONTENTS"><IMG SRC="cc.gif" BORDER=0 HEIGHT=40 WIDTH=70></A>
+<A HREF="index.html"><IMG SRC="home.gif" BORDER=0 HEIGHT=40 WIDTH=70></A>
+<HR WIDTH="100%"></P></CENTER>
+<ul class="pager">
+  <li class="previous"><a href="ch2.html"><IMG SRC="pre.gif" BORDER=0 HEIGHT=10 WIDTH=70></a></li>
+  <li class="next"><a href="ch4.html"><IMG SRC="next.gif" BORDER=0 HEIGHT=10 WIDTH=70></a></li>
+</ul>
+</BODY>
+	<footer class="footer">
+      <div class="container">
+        <p class="text-muted" align="center">  Copyright © BCE Bhagalpur. All rights reserved.
+<br> For Suggestions and Feedback please contact bcebhagalpur@gmail.com
+<br> Designed by Webteam,BCE(Computer Science Department) </p>
+      </div>
+    </footer>
+</HTML>
+
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>

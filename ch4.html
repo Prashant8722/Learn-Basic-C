@@ -1,0 +1,327 @@
+<HTML>
+<HEAD>
+<TITLE>Chapter 4 --  Conditional Statement</TITLE>
+  <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#CE2910">
+<H1><FONT SIZE=6 COLOR=#FF0000>Chapter&nbsp;4</FONT></H1>
+<H1><FONT SIZE=6 COLOR=#FF0000>Conditional Statement</FONT></H1>
+<P></p>
+<HR>
+<CENTER><B><FONT SIZE=5><A NAME="CONTENTS">CONTENTS</A></FONT></B></CENTER>
+<UL>
+<LI><A HREF="ch4.html#Introduction">
+Introduction</A></LI>
+<LI><A HREF="ch4.html#The if Statement">
+The if Statement </A></LI>
+<UL>
+<LI><A HREF="ch4.html#Confusing Equality (==) and Assignment (=) Operators">
+Confusing Equality (==) and Assignment (=) Operators</A></LI>
+<LI><A HREF="ch4.html#Multiple Statements within if">
+Multiple Statements within if</A></LI>
+</UL>
+<LI><A HREF="ch4.html#The if-else Statement">
+The if-else Statement</A></LI>
+<LI><A HREF="ch4.html#Nested if-else">
+Nested if-else</A>
+<LI><A HREF="ch4.html#The Conditional Operator ?:">
+The Terniary Operator ?:</A></LI>
+<LI><A HREF="ch4.html#The switch statement">
+The switch statement</A></LI>
+<UL>
+<LI><A HREF="ch4.html#Behaviour of switch">
+Behaviour of switch</A></LI>
+</UL>
+<LI><A HREF="ch4.html#The break statement">
+The break statement</A></LI>
+
+<LI><A HREF="ch4.html#Chapter 4 Quiz">
+Chapter 4 Quiz</A></LI>
+</UL>
+
+<H2><A NAME="Introduction"><FONT SIZE=5 COLOR=#FF0000>
+Introduction</FONT></A></H2>
+<ul>
+	<li>Allow different sets of instructions to be executed depending on truth or falsity of alogical condition also called Branching</li>
+	<li>How do we specify conditions?</li>
+		<ul><li>Using expressions</li></ul>
+			<ul>
+				<li>non-zero value means condition is true</li>
+				<li>value 0 means condition is false</li>
+		</ul>
+</ul>
+<ul>
+	<li>Usually logical expressions, but can be any expression
+	<li>The value of the expression will be used
+</ul>
+
+<H2><A NAME="The if Statement"><FONT SIZE=5 COLOR=#FF0000>
+The if Statement</FONT></A></H2>
+
+<img src="Figure4.0.jpg" alt="Syntax Diagram">
+<img src="Figure4.1.jpg" alt="Control-Flow Diagram">
+
+<H2><A NAME="Confusing Equality (==) and Assignment (=) Operators"><FONT SIZE=5 COLOR=#FF0000>
+Confusing Equality (==) and Assignment (=) Operators</FONT></A></H2>
+<ul>
+<li><b>Dangerous error</b></li>
+	<ul><li>Does not ordinarily cause syntax errors</li>
+		<li>Any expression that produces a value can be used in control structures</li>
+		<li>Nonzero values are true, zero values are false</li>
+	</ul>
+<li><b>Example:</b></li>
+	if ( payCode = 4 )<br>
+	printf( "You get a bonus!\n" );<span style="color:Red;"><br>Note:WRONG! Will always print the line</span>
+</ul>
+<H2><A NAME="Multiple Statements within if"><FONT SIZE=5 COLOR=#FF0000>
+Multiple Statements within if</FONT></A></H2>
+<pre>
+#include&#60stdio.h&#62
+int main()
+{
+	int num=19;
+	if(num<10)
+	{	
+		// For Multiple statements with in if use curly bracket.<b>{}</b>
+		printf("Number is %d.\n",num);
+		printf("The value is less than 10");
+	}
+	else
+	{	
+		printf("The value is greater than 10\n");
+		printf("Number is %d.\n",num);
+	}
+	return 0;
+}
+</pre>
+<pre>
+<b>Output:</b>
+The value is greater than 10
+Number is 19.
+</pre>
+<H2><A NAME="The if-else Statement"><FONT SIZE=5 COLOR=#FF0000>
+The if-else Statement</FONT></A></H2>
+<img src="Figure4.2.jpg" alt="Syntax Diagram of if-else">
+
+<PRE>
+<B>Illustration 4.1</B>
+void main() {
+int marks;
+scanf("%d", &marks);
+if (marks >= 80)
+printf ("A") ;
+else if (marks >= 70)
+printf ("B") ;
+else if (marks >= 60)
+printf ("C") ;
+else printf ("Failed") ;
+}
+</PRE>
+<center><img src="Figure4.3.png"><br><b>Figure 4.3</b> Control Flow Diagram of if-else </center>
+
+<H2><A NAME="Nested if-else"><FONT SIZE=5 COLOR=#FF0000>
+Nested if-else</FONT></A></H2>
+
+<ul><li>It is possible to nest if-else statements,one within another</li>
+<li>All "if" statements may not be having the "else" part</li>
+	<ul>Confusion??</ul>
+<li><strong>Rule to be remembered:</li></strong>
+<ul>An "else" clause is associated with the closest preceding unmatched "if"</ul>
+</ul>
+<pre>
+<B>Illustration 4.2</B>
+#include &#60 stdio.h &#62
+int main () 
+	{
+   int a = 1;
+   if( a < 10) 
+   {
+      if( a == 1) 
+	  {
+         printf("Value of a is:%d\n",a);
+      }
+	  else
+	  {
+		printf("The value is greater than 100.");
+	  }
+  }
+  else
+  {
+	printf("The value is greater than 10.");
+  }
+  return 0;
+}
+</pre>
+
+<pre>
+<b>Output:</br>
+Value of a is:1
+</pre>
+
+
+<H2><A NAME="The Terniary Operator ?:"><FONT SIZE=5 COLOR=#FF0000>
+The Terniary Operator ?:</FONT></A></H2>
+<p>This makes use of an expression that is either non-0 or 0.<br>An appropriate value is selected, depending on the value of the expression</p>
+<h4 <b>Syntax:-</b></h4>
+<p style="color:Orange;">Condition ? True Statement : False Statement</p>
+<p><b>Note:</b>if condition will true then true statement will be executed else false statement will be executed.</p>
+<style>
+th, td {
+  border: 2px solid grey;
+  border-collapse: collapse;
+ }
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+#t40,#t41,#t42,#t43,#t45,#t46,#t47 {
+  width: 100%;    
+}
+tr:nth-child(even) {
+  background-color:LightGray;
+}
+
+</style>
+
+<table id="#t40"width="100%">
+<Caption Style="Text-align:center"><strong>Examples:</strong></Caption>
+<tr>
+	<td>#include&#60stdio.h&#62<br>
+		void main()<br>
+		{<br>
+		int marks=80;<br>
+		if (marks >= 60)<br>
+			printf("Passed \n");<br>
+		else printf("Failed \n");<br>
+		return 0;<br>
+		}
+	</td>
+	<td>#include&#60stdio.h&#62<br>
+		void main()<br>
+		{<br>
+		int marks=80;<br>
+		(marks >= 60) ? printf("Passed \n") : printf("Failed \n");<br>
+		}
+	</td>
+</tr>
+<tr>
+	<td>
+		<span style="color:blue;">Output:</span>Passed
+	</td>
+	<td>
+		<span style="color:blue;">Output:</span>Passed
+	</td>
+</tr>
+<tr>
+	<td>
+		#include&#60stdio.h&#62<br>
+		void main()<br>
+		{<br>
+		int a=5;
+		int b=3;<br>
+		if((a >10) && (b < 5))<br>
+		x = a + b;<br>
+		else x = a-b;<br>
+		printf("x=%d",x);<br>
+		return 0;<br>
+		}
+	</td>
+	<td>
+		#include&#60stdio.h&#62<br>
+		void main()<br>
+		{<br>
+		int a=5;<br>
+		int b=3;<br>
+		x = ((a > 10) && (b < 5)) ? a + b : a-b<br>
+		printf("x=%d",x);<br>
+		}
+	</td>
+<tr>
+	<td>
+		<span style="color:red;">Output:</span>x=2</td>
+	<td>
+		<span style="color:red;">Output:</span>x=2</td>
+</tr>
+</table>
+
+<H2><A NAME="The switch statement"><FONT SIZE=5 COLOR=#FF0000>
+The switch statement</FONT></A></H2>
+<ul>
+<li>An alternative to writing lots of if-else in some special cases</li>
+<li>This causes a particular group of statements to be chosen from several available groups based on equality tests only</li>
+<li>Uses <span style="color:blue;"> switch </span>statement and <span style="color:blue;">case</span> labels<li>
+<h4 style="color:Tomato;">Syntax</h4>
+<pre>
+switch (expression) {
+case const-expr-1: S-1
+case const-expr-2: S-2
+:
+case const-expr-m: S-m
+default: S
+}
+</pre>
+<li>expression is any integer-valued expression</li>
+<li>const-expr-1, const-expr-2,..are any constant integer- valued expressions
+<br>Values must be distinct</li>
+<li>S-1, S-2,...,S-m, S are statements/compound
+statements</li>
+<li>Default is optional, and can come anywhere (not
+necessarily at the end as shown)</li>
+</ul>
+<H2><A NAME="Behaviour of switch"><FONT SIZE=5 COLOR=#FF0000>
+Behaviour of switch</FONT></A></H2>
+<ul type="disc">
+<li>expression is first evaluated</li>
+<li>It is then compared with const-expr-1,constexpr-2,...for equality in order</li>
+<li>If it matches any one, all statements from that point till the end of the switch are 
+executed (including statements for default, if present)</li>
+<ul type="square"><li>Use break statements if you do not want this (see example)</li></ul>
+<li>Statements corresponding to default, if present,are executed if no other expression matches</li>
+</ul>
+<h3 style="color:Tomato;">Example</h3>
+<table>
+<tr><td><img style="float:left;" src="Figure4.4.jpg"><br><center style="color:Orange;">Incorrect Way</center></td>
+<td><img style="float:right;" src="Figure4.5.png"><br><center style="color:Orange;">Correct Way</center></td>
+</tr>
+</table>
+<H2><A NAME="The break statement"><FONT SIZE=5 COLOR=#FF0000>
+The break statement</FONT></A></H2>
+<ul type="square">
+<li>Used to exit from a switch or terminate from a loop</li>
+		<ul><li>With respect to "switch", the "break" statement causes a transfer of control out of the entire
+		"switch" statement, to the first statement following the "switch" statement</li></ul>
+<li>Break out of the loop body { }
+<ul>
+	<li>It can use with while, do while, for, switch,</li>
+	<li>It does not work with if, else</li>
+</ul>
+<li>It Causes immediate exit from a while,do/while, for or switch structure</li>
+<li>Program execution continues with the first statement after the structure</li>
+<li>It Can be used with other statements also </li>
+</ul>
+
+<H2><A NAME="Chapter 4 Quiz"><FONT SIZE=5 COLOR=#FF0000>
+Chapter 4 Quiz</FONT></A></H2>
+
+
+<CENTER><P>
+<A HREF="#CONTENTS"><IMG SRC="cc.gif" BORDER=0 HEIGHT=40 WIDTH=70></A>
+<A HREF="index.html"><IMG SRC="home.gif" BORDER=0 HEIGHT=40 WIDTH=70></A>
+<HR WIDTH="100%"></P></CENTER>
+<ul class="pager">
+  <li class="previous"><a href="ch3.html"><IMG SRC="pre.gif" BORDER=0 HEIGHT=10 WIDTH=70></a></li>
+  <li class="next"><a href="ch5.html"><IMG SRC="next.gif" BORDER=0 HEIGHT=10 WIDTH=70></a></li>
+</ul>
+</body>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted" align="center">  Copyright © BCE Bhagalpur. All rights reserved.
+<br> For Suggestions and Feedback please contact bcebhagalpur@gmail.com
+<br> Designed by Webteam,BCE(Computer Science Department) </p>
+      </div>
+    </footer>
+</HTML>

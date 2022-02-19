@@ -1,0 +1,556 @@
+
+<HTML>
+<HEAD>
+<TITLE>CHAPTER 2-- Getting Started with C </TITLE>
+  <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<META>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#CE2910">
+<H1><FONT SIZE=6 COLOR=#FF0000>CHAPTER&nbsp;2</FONT></H1>
+<H1><FONT SIZE=6 COLOR=#FF0000>Getting Started with C </FONT></H1>
+<P>
+<!--<I><B>by Prashant Kumar</B></I>-->
+<HR>
+<P>
+<CENTER><B><FONT SIZE=5><A NAME="CONTENTS">CONTENTS</A></FONT></B></CENTER>
+<UL>
+<LI><A HREF="ch2.html#Introduction">
+Introduction </A>
+<LI><A HREF="ch2.html#First C Programming-Print on Screen ">
+First C Programming-Print on Screen</A>
+<LI><A HREF="ch2.html#Structure Of C Program">
+Structure Of C Program</A>
+<LI><A HREF="ch2.html#Variables">
+Variables </A>
+<LI><A HREF="ch2.html#Data Types">
+Data Types<BR>
+<LI><A HREF="ch2.html#C Keywords">
+C Keywords<BR>
+</A>
+<LI><A HREF="ch2.html#Input:Scanf Function">
+Input:Scanf Function<BR>
+</A>
+<LI><A HREF="ch2.html#Chapter 2 Quiz">
+Chapter 2 Quiz</A>
+</UL>
+
+<HR>
+<H2><A NAME="Introduction"><FONT SIZE=5 COLOR=#FF0000>
+Introduction</FONT></A></H2>
+<p>Computer is a machine that can perform computation
+
+<ol>
+<li><b>Input:</b>User gives a set of Input</li>
+<li><b>Processing:</b>Input data is processed by a well defined
+and finite sequence of steps</li>
+<li><b>Output:</b>Some data available from processing step and
+output to the user</li>
+</ol>
+
+<td>
+<center><img src="Figure2.0.jpg"><br><b>Figure 2.0</b> A Computer (Level 0 Version)</center>
+</td>
+
+<TABLE BORDERCOLOR=#000000 BORDER=1 WIDTH=100%>
+<TR VALIGN=TOP><TD><B>Programming and Software</B></TD></TR>
+<TR VALIGN=TOP><TD>
+<BLOCKQUOTE>
+<p>Computer needs to be programmed to do such tasks:-<br>
+<b><i>Programming</b></i> is the process of writing instructions in a language that can be understood by the computer so that a desired task can be performed by it<br>
+<b><i>Program:</b></i> sequence of instructions to do a task,computer processes the instructions sequentially one after the other<br>
+<b><i>Software:</b></i> programs for doing tasks on computers
+</BLOCKQUOTE>
+</TD></TR>
+</TABLE>
+
+
+<H2><A NAME="First C Programming-Print on Screen"><FONT SIZE=5 COLOR=#FF0000>
+First C Programming-Print on Screen</FONT></A></H2>
+<P>
+Consider the following few codes as the first C Program for you :
+<HR>
+<PRE>
+<B>Illustration  2.1			//      First C Program      //</B>
+#include&#60stdio.h&#62
+int main(){
+	printf("Hello,It's my first program.");
+	return 0;
+	}
+</PRE><HR>
+<P>
+These lines comprise the minimum components necessary to print <B> Hello,It's my first program. </B>onto the screen .
+
+<HR>
+<PRE>
+<B>Illustration 2.2</B>
+#include&#60stdio.h&#62
+void main()
+{
+printf ("Hello, World! \n") ;
+printf ("Hello \n World! \n") ;
+printf ("Hi\nHello \t World! \n") ;
+}
+</PRE><HR>
+
+<TABLE BORDERCOLOR=#000000 BORDER=1 WIDTH=30%>
+<TR VALIGN=TOP><TD><B>OUTPUT:</B></TD></TR>
+<TR VALIGN=TOP><TD>
+<BLOCKQUOTE>
+<pre>
+Hello, World!
+Hello
+World
+Hi
+Hello	World!
+</pre>
+</BLOCKQUOTE>
+</TD></TR>
+</TABLE>
+<br>
+<TABLE BORDERCOLOR=#000000 BORDER=1 WIDTH=100%>
+<TR VALIGN=TOP><TD><B>NOTE:</B></TD></TR>
+<TR VALIGN=TOP><TD>
+
+1. <B>How to edit this Program </B>: C program Can be written with any text editor. In Windows, we can use Notepad or NotePad++, in Linux gedit or vi can be used. Save this file having name FirstProgram.c. The name of the C source file is arbitrary.
+It must be suitable name so that you may find out What this program describes and extension must be c.<br>
+	<CENTER><PRE><B>gedit FirstProgram.c</B></PRE> </CENTER>
+2. <B>How to compile this Program</B> : The gcc compiler converts the c programs into byte codes.<P>For Linux users, you will need to first save the program 
+and open terminal make sure that you are in the directory you are using to store your c program, then enter the following command :
+	<CENTER><PRE><B>gcc -o FirstPgm FirstProgram.c or gcc FirstProgram.c</B></PRE> </CENTER>
+
+	After the successful compilation, byte codes will be produced which will be automatically stored in the same directory but with file name having extension<B> .exe</B> ( e.g. here the class file name will be FirstPgm.exe).
+<br>
+3.<B>How to run the C Program</B>: To run the Program, you have to type the command  ./FirstPgm( from the terminal ).<P> For example, our First Program can be run as:
+
+		<CENTER><PRE><B>./FirstPgm or ./a.out</B></PRE> </CENTER>  	
+	With this the C compiler will be invoked and it executes the byte code stored in <B>FirstPgm.exe </B>file. The output then will appear onto the screen.<br>
+4. 	<B>Basic structure of any Application </B>: An Program must contain at least one the main function. It may contain more than one function also.
+</TR>
+</TABLE>
+<br>
+
+<H2><A NAME="Structure Of C Program"><FONT SIZE=5 COLOR=#FF0000>
+Structure Of C Program</FONT></A></H2>
+<ul type="square">
+<li>A collection of functions (we will see what they are later)
+<li>Exactly one special function named main must be present.Program always starts from there
+<li>Each function has statements (instructions) for declaration, assignment, condition check,looping etc.
+<li>Statements are executed one by one.
+</ul>
+
+<H2><A NAME="Variables"><FONT SIZE=5 COLOR=#FF0000>
+Variables</FONT></A></H2>
+<ul type="disc">
+<li>Very important concept for programming.
+<li>Variables stored in memory.
+<li>An entity that has a value and is known to the program by a name.
+<li>It Can store any temporary result while executing a program.
+<li>It Can have only one value assigned to it at any given time during the execution of the program.
+<li>The value of a variable can be changed during the execution of the program
+<li>Remember that memory is a list of storage locations,each having a unique address.
+<li>A variable is like a <B>bin:-</B>
+<ul type="circle">
+<li>The contents of the bin is the <B>value</B> of the variable.
+<li>The variable name is used to refer to the value of the variable.
+<li>A variable is mapped to a location of the memory,called its <B>address</B>.
+</ul>
+</ul>
+
+<H2><A Name="How to give Names of Variable"><Font size=5 color=#000000>
+How to give Names of Variable</Font></A></H2>
+<ol>
+<li>Sequence of letters and digits</li>
+<li>First character must be a letter or &#39_&#39</li>
+<li>No special characters other than &#39_&#39</li>
+<li>No blank in between</li>
+<li>Names are case-sensitive (max and Max are two different names)</li>
+<ul>
+	<li>Examples of valid names:</li>
+	<ul>rank1, MAX, max, Min, class_rank</ul>
+	<li>Examples of invalid names:</li>
+	<ul>a&#39 s ,fact rec,2sqroot,class?rank</ul>
+</ul>
+</ol>
+
+<H2><A Name="Constants"><Font=5 color=#000000>
+Constants</Font></A></H2>
+<ul type="disc">
+<li>Integer constants</li>
+	<ol type='circle'>
+		<li>Consists of a sequence of digits, with possibly a plus or a minus sign before it</li>
+		<li>Embedded spaces, commas and non-digit charactersare not permitted between digits</li>
+</ol>
+<li>Floating point constants</li>
+<li>Two different notations:</li>
+	<ol type='circle'>
+		<li>Decimal notation: 25.0, 0.0034, .84, -2.234
+		<li>Exponential (scientific) notation 3.45e23, 0.123e-12, 123e2 e means <q>10 to the power of</q>
+	</ol>
+<li>Character constants</li>
+<li>Contains a single character enclosed within a pair of single quote marks.
+<p>Examples :&#39 2 &#39, &#39 + &#39, &#39 Z &#39</p>
+<li>Some special backslash characters</li>
+<table style="width:30%">
+<tr><td>&#39\n&#39 </td>
+<td>new line</td>
+</tr>
+<tr><td>&#39\t&#39 </td>
+<td>horizontal tab</td>
+</tr>
+<tr><td>&#39\&#39 &#39 </td>
+<td>single quote</td></tr>
+<tr><td>&#39\&#8221&#39	</td>
+<td>double quote</td></tr>
+<tr><td>&#39\\&#39</td>
+<td>backslash</td></tr>
+<tr><td>&#39\0&#39 	</td>
+<td>null<br></tr>
+</table>
+</ul>
+
+<HR>
+<PRE>
+<B>Illustration 2.3</B>
+#include&#60stdio.h&#62
+void main()
+{
+int x;
+int y;
+x=1;
+y=3;
+printf("x = %d, y= %d\n", x, y);
+}
+<h4>Output:</h4>
+<p>x=1, y=3</p>
+</PRE><HR>
+
+<section>
+<h3><strong><CENTER>Variables in Memory</CENTER></strong></h3>
+<center><img src="Figure2.1.jpg"><br><b>Figure 2.5</b>Variables in memory</center>
+<center><img src="Figure2.2.jpg"><br><b>Figure 2.2</b> Variables in memory</center>
+<center><img src="Figure2.3.jpg"><br><b>Figure 2.3</b> Variables in memory</center>
+<center><img src="Figure2.4.jpg"><br><b>Figure 2.4</b> Variables in memory</center>
+</section>	
+		
+<H2><A NAME="C Keywords"><FONT SIZE=5 COLOR=#FF0000>
+C Keywords<BR>
+</FONT></A></H2>
+<UL type="Circle">
+<li>Used by the C language, cannot be used as variable names
+<li>Examples:
+	<ul type = "square">
+	<li><B> int, float, char, double, main, if else, for, while,do, struct, union, typedef, enum, void, return,signed, unsigned, case, break, sizeof etc.</B>
+	<li>There are others, see textbook. 
+	</ul>
+</UL>
+
+<H2><A NAME="Input:Scanf function"><FONT SIZE=5 COLOR=#FF0000>
+Input:Scanf function<BR>
+</FONT></A></H2>
+<UL type= "square">
+<li>Performs input from keyboard
+<li>It requires a format string and a list of variables into which the value received from the keyboard will be stored
+<li>format string = individual groups of characters(usually &#39%&#39 sign, followed by a conversion character),with one character group for each variable in the list
+<TABLE WIDTH=30%>
+<TR VALIGN=TOP><TD>
+<BLOCKQUOTE>
+<pre>
+int a, b;
+float c;
+scanf(<q>%d %d %f</q>, &a, &b, &c);
+</pre>
+</BLOCKQUOTE>
+</TD></TR>
+</TABLE>
+</UL>
+
+<H2><A NAME="Commonly used conversion characters"><FONT SIZE=5 COLOR=#000000>
+Commonly used conversion characters</FONT></A></H2>
+<ol type="a">
+<li><strong>c</strong> :for char type variable</li>
+<li><strong>d</strong> :for int type variable</li>
+<li><strong>f</strong> :for float type variable
+<li><strong>lf</strong> :for double type variable
+	<ul type=None>
+	<li><strong>Examples:</strong></li>
+	<li>scanf("%d", &size) ;</li>
+	<li>scanf("%c", nextchar) ;</li>
+	<li>scanf("%f", &length) ;</li>
+	<li>scanf("%d%d", &a, &b);</li>
+	</ul>
+</ol>
+
+<H2><A NAME="Reading a single character"><FONT SIZE=5 COLOR=#000000>
+Reading a single character</FONT></A></H2>
+<ul type="disc">
+<li>A single character can be read using scanf with %c</li>
+<li>It can also be read using the getchar() function</li>
+<li>Program waits at the getchar() line until a character is typed, and then reads it and stores it in c</li>
+<p> 				char c;<br>
+					c = getchar();
+</p>
+</ul>
+
+<p>
+<H2><A NAME="Data types"><FONT SIZE=5 COLOR=#FF0000>
+Data types<BR>
+</FONT></A></H2>
+<ul type='square'>
+<li>Each variable has a type, indicates what type of values the variable can hold
+<ol type='I'>
+<b>Four common data types in C: </b>
+<li><b>int</b> - can store integers (usually 4 bytes)</li>
+<li><b>float</b> - can store single-precision floating point numbers (usually 4 bytes)</li>
+<li><b>double</b> - can store double-precision floating point numbers (usually 8 bytes)</li>
+<li><b>char</b>- can store a character (1 byte)</li>
+</ol>
+<li>Must declare a variable (specify its type and name) before using it anywhere in your program</li>
+<li>All variable declarations should be at the beginning of the main() or other functions</li>
+<li>A value can also be assigned to a variable at the time the variable is declared.
+<p>
+int speed = 30;<br>
+char flag = &#39 y &#39;
+</p>
+</li>
+<center><h3 style="color:Tomato;">Some typical sizes (some of these can vary depending on type of machine)</h3></center>
+<IMG SRC="Figure2.5.jpg">
+</ul>
+<H2><A NAME="Chapter 2 Quiz"><FONT SIZE=5 COLOR=#FF0000>
+Chapter 2 Quiz<BR>
+</FONT></A></H2>
+<TABLE>
+        <div class="qt-question">1.A keyword is a word that</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="1.0" name="1" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+                functions as a password needed to launch a program 
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="1.1" name="1" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+                cannot be used in the meaning other than defined in the language standard 
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="1.2" name="1" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                is the most important word in a program 
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="1.3" name="1" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+                None of these
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+  
+          <div class="qt-question">2.A compiler is</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="2.0" name="2" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+                a.an alternative name for a processor 
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="2.1" name="2" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+			b.a computer program designed to translate programs from a machine language into a high-level language             
+			</label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="2.2" name="2" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                c.a computer program designed to translate programs from a high-level language into a machine language
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="2.3" name="2" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+                d.Both b and c
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+  
+          <div class="qt-question">3.What is the value of the following floating-point literal?<br>8765E-2</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="3.0" name="3" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+					8.7652
+			</label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="3.1" name="3" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+				0.8765
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="3.2" name="3" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                87.65
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="3.3" name="3" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+               8765.00
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+  
+          <div class="qt-question">4.Which of the following strings is an invalid variable name?</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="4.0" name="4" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+                _0_
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="4.1" name="4" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+                __@
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="4.2" name="4" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                _0
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="4.3" name="4" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+					0_
+				</label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+  
+          <div class="qt-question">5.What is the value of the x variable at the end of the following snippet?<br>int x;<br>x = 1 / 2;</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="5.0" name="5" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+                a.0.5
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="5.1" name="5" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+                b.0
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="5.2" name="5" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                c.1
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="5.3" name="5" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+                d.Both a and b
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+</TABLE>
+
+<CENTER><P>
+<A HREF="#CONTENTS"><IMG SRC="cc.gif" BORDER=0 HEIGHT=40 WIDTH=70></A>
+<A HREF="index.html"><IMG SRC="home.gif" BORDER=0 HEIGHT=40 WIDTH=70></A>
+<HR WIDTH="100%"></P></CENTER>
+<ul class="pager">
+  <li class="previous"><a href="ch1.html"><IMG SRC="pre.gif" BORDER=0 HEIGHT=10 WIDTH=70></a></li>
+  <li class="next"><a href="ch3.html"><IMG SRC="next.gif" BORDER=0 HEIGHT=10 WIDTH=70></a></li>
+</ul>
+</BODY>
+<HR>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted" align="center">  Copyright © BCE Bhagalpur. All rights reserved.
+<br> For Suggestions and Feedback please contact bcebhagalpur@gmail.com
+<br> Designed by Webteam,BCE(Computer Science Department) </p>
+      </div>
+    </footer>
+</HTML>
+
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>

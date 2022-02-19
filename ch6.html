@@ -1,0 +1,447 @@
+<HTML>
+<HEAD>
+<TITLE>CHAPTER 6 --Functions & Pointers </TITLE>
+ <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+#t61 {
+  width: 100%;    
+  background-color: #f1f1c1;
+}
+tr:nth-child(even) {
+  background-color: #FFF8DC;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 50.00%;
+  padding: 5px;
+  
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
+
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#CE2910">
+<H1><font SIZE=6 COLOR=#FF0000>Chapter&nbsp;6</font></H1>
+<H1><font SIZE=6 COLOR=#FF0000>Functions & Pointers </font></H1>
+<HR>
+
+<CENTER><B><font SIZE=5><A NAME="CONTENTS">CONTENTS</A></font></B></CENTER>
+<UL>
+<LI><A HREF="ch6.html#What is Function">
+What is Function</A>
+<UL>
+<LI><A HREF="ch6.html#Why We Use Functions?">
+Why We Use Functions?</A>
+</UL>
+<LI><A HREF="ch6.html#Scope of a variable in Functions">
+Scope of a variable in Functions</A>
+<LI><A HREF="ch6.html#Calling Convention">
+Calling Convention</A>
+
+<LI><A HREF="ch6.html#Advanced Features of Functions">
+Advanced Features of Functions</A>
+<UL>
+<LI><A HREF="ch6.html# Function Declaration and Prototypes">
+Function Declaration and Prototypes</A>
+<LI><A HREF="ch6.html#Call by Value and Call by Reference">
+Call by Value and Call by Reference</A>
+<LI><A HREF="ch6.html#Library Functions">
+Library Functions</A>
+<LI><A HREF="ch6.html#An Introduction to Pointers">
+An Introduction to Pointers</A>
+<LI><A HREF="ch6.html#Pointer Notation">
+Pointer Notation</A>
+<LI><A HREF="ch6.html#Back to Function Calls">
+Back to Function Calls</A>
+<LI><A HREF="ch6.html#Conclusions">
+Conclusions</A>
+<LI><A HREF="ch6.html#Recursion">
+Recursion</A>
+<LI><A HREF="ch6.html#Recursion and Stack">
+Recursion and Stack</A>
+</UL>
+<LI><A HREF="ch6.html#Chapter 6 Quiz">
+Chapter 6 Quiz</A>
+</UL>
+
+<H2><A NAME="What is Function"><font SIZE=5 COLOR=#FF0000>
+What is Function</font></A></H2>
+<ul>
+<li>A program segment that carries out some specific,well-defined task.</li>
+<li><b>Example</b></li>
+	<ul>
+		<li>A function to add two numbers</li>
+		<li>A function to find the largest of n numbers</li>
+	</ul>
+<li>A function will carry out its intended task whenever it is <span style="color:blue;">called</span> or <span style="color:blue;">invoked</span></li>
+<li>It Can be called multiple times.</li>
+<li>Every C program consists of one or more functions</li>
+<li>One of these functions must be called <span style="color:blue;">main</span></li>
+<li>Execution of the program always begins by carrying out the instructions in <span style="color:blue;">main</span></li>
+<li>Functions call other functions as instructions</li>
+<li><b>Function Control Flow</b></li>
+<img src="Figure6.1.jpg">
+<li>Calling function (<span style="color:blue;">callee</span>) may pass information to the called function (<span style="color:blue;">callee</span>) as parameters/arguments</li>
+<b>For example, the numbers to add</b>
+<li>The callee may return a single value to the caller</li>
+<ul>Some functions may not return anything</ul>
+</ul>
+
+<h3><b>Details of Terms used in function</b></h3>
+
+<div class="row">
+  <div class="column">
+    <img src="Figure6.3.jpg" alt="Terms" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="Figure6.4.jpg" alt="Works" style="width:100%">
+  </div>
+</div>
+
+<h3><b>Another Example</b></h3>
+<div class="row">
+  <div class="column">
+    <img src="Figure6.2.0.jpg" alt="declaration" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="Figure6.2.1.jpg" alt="definition" style="width:100%">
+  </div>
+</div>
+
+
+<H2><A NAME="Why we Use Functions?"><font SIZE=5 COLOR=#FF0000>
+Why We Use Functions?</font></A></H2>
+<ul><li>Allows one to develop a program in a modular fashion</li>
+<ul>
+<li>Divide-and-conquer approach</li>
+<li>Construct a program from small pieces or components</li>
+</ul>
+<li>Use existing functions as building blocks for new programs</li>
+<li>Abstraction: hide internal details (library functions)</li>
+</ul>
+
+<H2><A NAME="Scope of a variable in Functions"><font SIZE=5 COLOR=#FF0000>
+Scope of a variable in Functions</font></A></H2>
+
+<ul>
+<li>Part of the program from which the value of the variable
+can be used (seen)</li>
+<li>Scope of a variable - Within the block in which the variable
+is defined</li>
+<ul><li>Block = group of statements enclosed within { }</li></ul>
+<li>Local variable =scope is usually the function in which it is defined
+<ul><li>So two local variables of two functions can have the
+same name, but they are different variables</li></ul>
+<li>Global variables =declared outside all functions (even
+main)</li>
+<ul><li>scope is entire program by default, but can be hidden in
+a block if local variable of same name defined</li></ul>
+</ul>
+ <img src="Figure6.7.jpg" alt="Scope" style="width:50%">
+ 
+<H2><A NAME="Calling Convention"><font SIZE=5 COLOR=#FF0000>
+Calling Convention</font></A></H2>
+<ul>
+<li>It Called by specifying the function name and parameters in an instruction in the calling function.
+<li>When a function is called from some other function, the corresponding arguments in the function call are called <span style="color:green;">actual arguments or actual parameters</span></li>
+<ul type="circle">
+<li>The function call must include a matching actual parameter for each formal parameter</li>
+<li>Position of an actual parameters in the parameter list in the call must match the position of the
+	corresponding formal parameter in the function definition</li> 
+<li>The formal and actual arguments must match in their data types</li>
+</ul>
+</ul>
+ <img src="Figure6.5.jpg" alt="Example" style="width:80%">
+ <img src="Figure6.6.jpg" alt="Example" style="width:80%">
+ 
+<h3 style="color:red;"><b>Points to note</b></h3>
+<ul>
+<li>The identifiers used as formal parameters are  <span style="color:blue;">"local".</span>
+<ul>
+	<li>It is not recognized outside the function
+	<li>Names of formal and actual arguments may differ
+</ul>
+<li>A value-returning function is called by including it in an expression
+<ul>	
+	<li>A function with return type T ( not void) can be used anywhere an expression of type T can be used.</li>
+</ul>
+<li>Returning control back to the caller
+	<ul>
+		<li>If nothing returned</li>
+			<ul>
+				<li style="color:blue;">return;</li>
+				<li>or,until reaches the last right brace ending the function body.</li> 
+			</ul>
+		<li>If something returned
+			<ul style="color:blue;">return expression;</ul>
+	</ul>
+</ul>
+<H2><A NAME="Advanced Features of Functions"><font SIZE=5 COLOR=#FF0000>
+Advanced Features of Functions</font></A></H2>
+<p>We will see the advanced some features of functions are given below:-</p>
+
+<H2><A NAME="Function Declaration and Prototypes"><font SIZE=5 COLOR=#FF0000>
+Function Declaration and Prototypes</font></A></H2>
+<ul>
+
+<li>Usually, a function is defined before it is called
+<ul>
+	<li>main() is the last function in the program written
+	<li> Easy for the compiler to identify function definitions in a single scan through the file</li>
+</ul>
+<li>However, many programmers prefer a top-down approach, where the functions are written after <span style="color:blue;">main()</span></li>
+<ul>
+	<li>Must be some way to tell the compiler
+	<li>Function prototypes are used for this purpose
+</ul>
+<li>Only needed if function definition comes after use
+<li>Function prototypes are usually written at the beginning of a program, ahead of any functions(including <span style="color:blue;">main()</span>)</li>
+<li>Prototypes can specify parameter names or just types (more common)</li>
+<li>Examples:</li>
+<ul>
+<li>int gcd (int , int );</li>
+<li>void div7 (int number);</li>
+</ul> 
+<li><span style="color:blue;">Note: </span>the semicolon at the end of the line.
+<li>The parameter name, if specifed, can be anything; but it is a good practice to use the
+same names as in the function definition</li>
+</ul>
+<h3 style="color:Tomato;">Some more points</h3>
+<ul type="square">
+<li>A function cannot be defined within another function</li>
+<ul type="circle">
+<li>All function definitions must be disjoint</li>
+</ul>
+<li>Nested function calls are allowed</li>
+<ul type="circle">
+<li>A calls B, B calls C, C calls D, etc.</li>
+<li>The function called last will be the first to return</li>
+</ul>
+<li>A function can also call itself, either directly or in a cycle</li>
+<li>A calls B, B calls C, C calls back A Called <span style="color:blue;">recursive call or recursion</span></li>
+</ul>
+<h3 style="color:Tomato;">Example:main calls ncr, ncr calls fact</h3>
+<pre>
+int ncr (int n, int r);
+int fact (int n);
+void main()
+{
+	int i, m, n, sum=0;
+	scanf ("%d %d", &m, &n);
+		for (i=1; i < =m; i+=2)
+			sum = sum + ncr (n, i);
+printf ("Result: %d \n",sum);
+}
+<b>//ncr function definition</b>
+int ncr (int n, int r)
+{
+return (fact(n) / fact(r) / fact(n-r));
+}
+<b>//fact function declaration</b>
+int fact (int n)
+{
+	int i,temp=1;
+	for (i=1; i<=n; i++)
+		temp *= i;
+	return (temp);
+}
+</pre>
+
+<H2><A NAME="Call by Value and Call by Reference"><font SIZE=5 COLOR=#FF0000>
+Call by Value and Call by Reference</font></A></H2>
+<p>It is used when invoking functions:</p>
+<h3 style="color:green;">Call by value </h3>
+<ul type ="circle">
+<li>Passes the value of the argument to the function</li>
+<li>Execution of the function does not change the actual parameters</li>
+<li>All changes to a parameter done inside the function are done on a copy of the actual parameter</li>
+<li>The copy is removed when the function returns to the caller</li>
+<li>The value of the actual parameter in the caller is not affected</li>
+<p>Avoids accidental changes</p>
+</ul>
+<h3 style="color:green;">Call by reference</h3>
+<ul>
+<li>Passes the address to the original argument.</li>
+<li>Execution of the function may affect the original</li>
+<li>Not directly supported in C except for arrays</li>
+</ul>
+
+<H2><A NAME="Library Functions"><font SIZE=5 COLOR=#FF0000>
+Library Functions</font></A></H2>
+
+<section>
+<ul>
+<li>Set of functions already written for you,and bundled in a "library"</li>
+<ul>Example:printf, scanf, getchar etc.</ul>
+<li>C library provides a large number of functions for many things</li>
+<li>We look at functions for mathematical use.</li>
+<h3>Math Library Functions</h3>
+	<li>Math library functions </li>
+<ul>
+	<li>perform common mathematical calculations</li>
+	<li>Must include a special header file</li>
+	<ul>#include &#60 math.h &#62 </ul>
+</ul>
+
+<li>Example</li>
+<ul>	
+	<li>printf("%f", sqrt(900.0));</li>
+	<li>Calls function sqrt, which returns the square root of its argument</li>
+</ul>
+
+<li>Return values of math functions can be float/double/long double</li>
+<li>Arguments may be constants, variables, or expressions</li>
+</ul>
+</section>
+
+<table id="#t61"width=80%>
+<th>Function</th><th>Working of function</td></th>
+<tr><td>double acos(double x)</td><td>Compute arc cosine of x.</td></tr>
+<tr><td>double asin(double x)</td><td>Compute arc sine of x.</td></tr>
+<tr><td>double atan(double x)</td><td>Compute arc tangent of x.</td></tr>
+<tr><td>double atan2(double y, double x)</td><td>Compute arc tangent of y/x.</td></tr>
+<tr><td>double cos(double x)</td><td>Compute cosine of angle in radians.</td></tr>
+<tr><td>double cosh(double x)</td><td>Compute the hyperbolic cosine of x.</td></tr>
+<tr><td>double sin(double x) </td><td> Compute sine of angle in radians.</td></tr>
+<tr><td>double sinh(double x) </td><td> Compute the hyperbolic sine of x.</td></tr>
+<tr><td>double tan(double x) </td><td> Compute tangent of angle in radians.</td></tr>
+<tr><td>double tanh(double x) </td><td> Compute the hyperbolic tangent of x.</td></tr>
+
+<tr><td>double ceil(double x) </td><td> Get smallest integral value that exceeds x.</td></tr>
+<tr><td>double floor(double x) </td><td> Get largest integral value less than x.</td></tr>
+<tr><td>double exp(double x) </td><td> Compute exponential of x.</td></tr>
+<tr><td>double fabs (double x) </td><td> Compute absolute value of x.</td></tr>
+<tr><td>double log(double x) </td><td> Compute log to the base e of x.</td></tr>
+<tr><td>double log10 (double x) </td><td> Compute log to the base 10 of x.</td></tr>
+<tr><td>double pow (double x, double y) </td><td> Compute x raised to the power y.</td></tr>
+<tr><td>double sqrt(double x) </td><td> Compute the square root of x.</td></tr>
+</table>
+
+<H2><A NAME="Introduction to Pointers"><font SIZE=5 COLOR=#FF0000>
+Introduction to Pointers</font></A></H2>
+<ul type="circle;">
+<li>It is powerful,but difficult to master.</li>
+<li>It simulate call-by-reference.</li>
+<li>It is closely related with arrays and strings</li>
+</ul>
+
+<h4>Pointer Variable Definitions and Initialization</h4>
+<ul> 
+	<li>Pointer variables
+	<ul>
+		<li>Contain memory addresses as their values
+		<li>Normal variables contain a specific value (direct reference) count
+		<li>Pointer is a variable that contains address of a another variable that has a specific value (indirect reference)
+		<li>Indirection – referencing a pointer value
+	</ul>
+<li>Pointer definition
+	<ul>
+	<li>* used with pointer variables</li>
+	<ul><li>int *myPtr;</li></ul>
+	<li>Defines a pointer to an int (pointer of type int *)</li>
+	<li>Multiple pointers require using a  * before each variable definition</li>
+	<ul><li>int *myPtr1, *myPtr2;</li></ul>
+	<li>It can define pointers to any data type</li>
+	<li>Initialize pointers to NULL or an address</li>
+	</ul>
+</ul>
+<H2><A NAME="Pointer Notation"><font SIZE=5 COLOR=#FF0000>
+Pointer Notation</font></A></H2>
+	<ul><li>& (address operator)</li>
+		<li>It returns address of operand</li>
+	</ul>
+	
+<H2><A NAME="Back to Function Calls"><font SIZE=5 COLOR=#FF0000>
+Back to Function Calls</font></A></H2>
+
+<H2><A NAME="Conclusions"><font SIZE=5 COLOR=#FF0000>
+Conclusions</font></A></H2>
+
+<H2><A NAME="Recursion"><font SIZE=5 COLOR=#FF0000>
+Recursion</font></A></H2>
+<ul>
+	<li>A process by which a function calls itself repeatedly.</li>
+	<ul>
+		<li>Either directly:-X calls X</li>
+		<li>Or cyclically in a chain:-X calls Y, and Y calls X</li>
+	</ul>
+	<li>Used for repetitive computations in which each action is stated in terms of a previous result.</li>
+		fact(n) = n * fact (n-1)
+	<li>For a problem to be written in recursive form,two conditions are to be satisfied:
+	<ul>
+		<li>It should be possible to express the problem in recursive form</li>
+	        Solution of the problem in terms of solution of the same problem on smaller sized data.	
+		<li>The problem statement must include a stopping condition</li>
+		<pre>fact(n) = 1,        if n = 0,Stopping condition
+	= n * fact(n-1),            if n > 0,Recursive definition</pre>
+	</ul>
+</ul>
+<Strong>Example</Strong>
+<ul>
+	<li>Factorial:</li>
+	<ul><li>fact(0) = 1</li>
+	<li>fact(n) = n * fact(n-1), if n > 0</li></ul>
+	
+	<li>GCD:</li>
+	<ul><li>gcd (m, m) = m</li>
+	<li>gcd (m, n) = gcd (m%n, n), if m > n</li>
+	<li>gcd (m, n) = gcd (n, n%m), if m < n</li></ul>
+	<li>Fibonacci series (1,1,2,3,5,8,13,21,......)</li>
+		<ul><li>fib (0) = 1</li>
+			<li>fib (1) = 1</li>
+			<li>fib (n) = fib (n-1) + fib (n-2), if n > 1</li>
+		</ul>
+</ul>
+<H2><A NAME="Recursion and Stack"><font SIZE=5 COLOR=#FF0000>
+Recursion and Stack</font></A></H2>
+
+<H2><A NAME="Chapter 6 Quiz"><font SIZE=5 COLOR=#FF0000>
+Chapter 6 Quiz</font></A></H2>
+
+
+<section>
+<CENTER><P>
+<A HREF="#CONTENTS"><IMG SRC="cc.gif" BORDER=0 HEIGHT=40 WIDTH=70></A>
+<A HREF="index.html"><IMG SRC="home.gif" BORDER=0 HEIGHT=40 WIDTH=70></A>
+<HR WIDTH="100%"></P></CENTER>
+<ul class="pager">
+  <li class="previous"><a href="ch5.html"><IMG SRC="pre.gif" BORDER=0 HEIGHT=10 WIDTH=70></a></li>
+  <li class="next"><a href="ch7.html"><IMG SRC="next.gif" BORDER=0 HEIGHT=10 WIDTH=70></a></li>
+</ul>
+</section>
+
+</body>
+<HR>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted" align="center">  Copyright © BCE Bhagalpur. All rights reserved.
+<br> For Suggestions and Feedback please contact bcebhagalpur@gmail.com
+<br> Designed by Webteam,BCE(Computer Science Department) </p>
+      </div>
+    </footer>
+</HTML>

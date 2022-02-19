@@ -1,0 +1,155 @@
+<HTML>
+<HEAD>
+<TITLE>Chapter 7 -- Arrays</TITLE>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#CE2910">
+<H1><FONT SIZE=6 COLOR=#FF0000>Chapter&nbsp;7</FONT></H1>
+<H1><FONT SIZE=6 COLOR=#FF0000>Arrays</FONT></H1>
+<P>
+<HR>
+<CENTER><B><FONT SIZE=5><A NAME="CONTENTS">CONTENTS</A></FONT></B></CENTER>
+<HR>
+<UL>
+<LI><A HREF="ch7.html#What are Arrays">
+What are Arrays</A>
+<LI><A HREF="ch7.html#A Simple Program Using Array">
+A Simple Program Using Array</A>
+<LI><A HREF="ch7.html#More on Array">
+More on Array</A>
+<UL>
+<LI><A HREF="ch7.html#Array Initialization">
+Array Initialization</A>
+<LI><A HREF="ch7.html#Bounds Checking">
+Bounds Checking</A>
+<LI><A HREF="ch7.html#Passing Array Elements to a Function">
+Passing Array Elements to a Function </A>
+</UL>
+<LI><A HREF="ch7.html#Pointers and Arrays">
+Pointers and Arrays</A>
+<UL>
+<LI><A HREF="ch7.html#Passing an Entire Array to a function ">
+Passing an Entire Array to a function </A>
+<LI><A HREF="ch7.html#The Real Thing ">
+The Real Thing</A>
+</UL>
+<LI><A HREF="ch7.html#2-D Arrays">
+2-D Arrays</A>
+<UL>
+<LI><A HREF="ch7.html#Initializing a 2-D Array">
+Initializing a 2-D Array</A>
+<LI><A HREF="ch7.html#Memory Map of a 2-D Arrays">
+Memory Map of a 2-D Arrays</A>
+<LI><A HREF="ch7.html#Pointers and 2-D Arrays">
+Pointers and 2-D Arrays</A>
+<LI><A HREF="ch7.html#Pointer to an Array">
+Pointer to an Array</A>
+<LI><A HREF="ch7.html#Passing 2-D Array to a Function ">
+Passing 2-D Array to a Function</A>
+</UL>
+<LI><A HREF="ch7.html#Array of Pointers">
+Array of Pointers</A>
+<LI><A HREF="ch7.html#Chapter 7 Quiz">
+Chapter 7 Quiz</A>
+</UL>
+<H2><A NAME="What are Arrays"><FONT SIZE=5 COLOR=#FF0000>
+What are Arrays</FONT></A></H2>
+<ul><li>Array is a data structure which can represent a collection of data items which have the same data type (float/int/char/...)</li></ul>
+<H2><A NAME="A Simple Program Using Array"><FONT SIZE=5 COLOR=#FF0000>
+A Simple Program Using Array</FONT></A></H2>
+<pre>#include<stdio.h>
+  void main()
+  {
+  int i;
+  int data[10];
+  for (i=0; i<10; i++) data[i]= i;
+  i=0;
+  while (i<10)
+  {
+  printf("Data[%d] = %d\n", i, data[i]);
+  i++;
+  }
+  }</pre>
+<H2><A NAME="More on Array"><FONT SIZE=5 COLOR=#FF0000>
+More on Array</FONT></A></H2>
+
+<H2><A NAME="Array Initialization"><FONT SIZE=5 COLOR=#FF0000>
+Array Initialization</FONT></A></H2>
+<u>General form:</u>
+<li>type array_name[size] = { list of values };</li>
+<b>Examples:</b>
+<li>int marks[5] = {72, 83, 65, 80, 76};</li>
+<li>char name[4] = {"A", "m", "i", "t"};</li>
+<li>The size may be omitted. In such cases the compiler automatically allocates enough space for all initialized elements</li>
+<ul><li>int flag[ ] = {1, 1, 1, 0};</li>
+<li>char name[ ] = {"A", "m", "i", "t"};</li></ul>
+<H2><A NAME="Bounds Checking"><FONT SIZE=5 COLOR=#FF0000>
+Bounds Checking</FONT></A></H2>
+<ul><li>C arrays have no bounds checking.</li>
+<li>If size is omitted, initializers determine it</li>
+<ul>int n[] = { 1, 2, 3, 4, 5 };</ul>
+<li>5 initializers, therefore 5 element array.</li></ul>
+<H2><A NAME="Passing Array Elements to a Function"><FONT SIZE=5 COLOR=#FF0000>
+Passing Array Elements to a Function</FONT></A></H2>
+
+<H2><A NAME="Pointers and Arrays"><FONT SIZE=5 COLOR=#FF0000>
+Pointers and Arrays</FONT></A></H2>
+
+<H2><A NAME="Passing an Entire Array to a function"><FONT SIZE=5 COLOR=#FF0000>
+Passing an Entire Array to a function</FONT></A></H2>
+
+<H2><A NAME="The Real Thing"><FONT SIZE=5 COLOR=#FF0000>
+The Real Thing</FONT></A></H2>
+
+<H2><A NAME="2-D Arrays"><FONT SIZE=5 COLOR=#FF0000>
+2-D Arrays</FONT></A></H2>
+
+<H2><A NAME="Initializing a 2-D Array"><FONT SIZE=5 COLOR=#FF0000>
+Initializing a 2-D Array</FONT></A></H2>
+
+<H2><A NAME="Memory Map of a 2-D Arrays"><FONT SIZE=5 COLOR=#FF0000>
+Memory Map of a 2-D Arrays</FONT></A></H2>
+
+<H2><A NAME="Pointers and 2-D Arrays"><FONT SIZE=5 COLOR=#FF0000>
+Pointers and 2-D Arrays</FONT></A></H2>
+
+<H2><A NAME="Pointer to an Array"><FONT SIZE=5 COLOR=#FF0000>
+Pointer to an Array</FONT></A></H2>
+
+<H2><A NAME="Passing 2-D Array to a Function"><FONT SIZE=5 COLOR=#FF0000>
+Passing 2-D Array to a Function</FONT></A></H2>
+
+<H2><A NAME="Array of Pointers"><FONT SIZE=5 COLOR=#FF0000>
+Array of Pointers</FONT></A></H2>
+
+<H2><A NAME="Chapter 7 Quiz"><FONT SIZE=5 COLOR=#FF0000>
+Chapter 7 Quiz</FONT></A></H2>
+
+<hr></hr>
+
+<CENTER><P>
+<A HREF="#CONTENTS"><IMG SRC="cc.gif" BORDER=0 HEIGHT=40 WIDTH=70></A>
+<A HREF="index.html"><IMG SRC="home.gif" BORDER=0 HEIGHT=40 WIDTH=70></A>
+<HR WIDTH="100%"></P></CENTER>
+<ul class="pager">
+  <li class="previous"><a href="ch6.html"><IMG SRC="pre.gif" BORDER=0 HEIGHT=10 WIDTH=70></a></li>
+  <li class="next"><a href="ch8.html"><IMG SRC="next.gif" BORDER=0 HEIGHT=10 WIDTH=70></a></li>
+</ul>
+</BODY>
+</HTML>
+
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
